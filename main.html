@@ -10,9 +10,30 @@
 	<script>
 		function secondHighest(arr) {
 			//Write your code here
-			
-		}
 
+			if(arr.length <= 1)return Number.NEGATIVE_INFINITY;
+
+			arr.sort( (a,b) =>{
+				return a - b;
+			});
+
+			let largest = arr[arr.length-1];
+			let second_largest =  Number.NEGATIVE_INFINITY;
+			function func(element, index , arr){
+			  if(element < largest && element > second_largest){
+					second_largest = element;
+				}
+			}
+			arr.forEach(func);
+			
+		// 	arr.forEach( () => {
+		// 		if(element < largest && element > second_largest){
+		// 			second_largest = element;
+		// 		}
+		// 	});
+			return second_largest;
+		}
+		
 		function Main() {
 			var n = prompt("Enter the number of elements");
 			var arr = [];
